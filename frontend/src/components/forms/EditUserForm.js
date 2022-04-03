@@ -12,7 +12,7 @@ const EditUserForm = props => {
     const submitForm = event => {
         event.preventDefault();
 
-        props.updateUser(user.id, user);
+        props.updateUser(user._id, user);
     };
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const EditUserForm = props => {
                     <div className="input-field col s12">
 
                         <input type="text" 
-                            id={user.id} 
+                            id={user._id} 
                             name="name"
                             value={user.name}
                             onChange={handleInputChange} 

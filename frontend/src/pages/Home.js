@@ -14,7 +14,7 @@ class Home extends Component {
 
         this.state = {
             users: [],
-            currentUser: { id: null, name: '', username: '' },
+            currentUser: { _id: null, name: '', username: '' },
             editing: false
         }
     }
@@ -24,20 +24,20 @@ class Home extends Component {
     }
 
     refreshUserTable() {
-        this.usersData = api.get('users')
+        this.usersData = api.get('user')
             .then(response => response.data)
             .then(data => {
 
                 this.setState({ 
-                    users: data.data,
-                    setUsers: data.data
+                    users: data.people,
+                    setUsers: data.people
                 });
             });
     }
 
     addUser = user => {
 
-        api.post('users', qs.stringify(user))
+        api.post('user', qs.stringify(user))
             .then(res => {
                 this.refreshUserTable();
             });
@@ -45,7 +45,7 @@ class Home extends Component {
 
     deleteUser = id => {
 
-        api.delete(`users/${id}`)
+        api.delete(`user/${id}`)
             .then(res => {
                 this.refreshUserTable();
             });
@@ -53,14 +53,14 @@ class Home extends Component {
 
     updateUser = (id, user) => {
         
-        api.put(`users/${id}`, qs.stringify(user))
+        api.put(`user/${id}`, qs.stringify(user))
             .then(res => {
 
                 this.refreshUserTable();
             });
         
         this.setState({ 
-            currentUser: { id: null, name: '', username: '' }
+            currentUser: { _id: null, name: '', username: '' }
         });
 
         this.setEditing(false);
@@ -69,7 +69,7 @@ class Home extends Component {
     editRow = user => {
 
         this.setState({ 
-            currentUser: { id: user.id, name: user.name, username: user.username }
+            currentUser: { _id: user._id, name: user.name, username: user.username }
         });
 
         this.setEditing(true);
