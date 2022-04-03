@@ -1,7 +1,7 @@
 //const router = require('express').Router()
 import express from 'express'
+import User from '../models/User'
 
-const User = require('../models/User')
 const router = express.Router()
 
 router.post('/', async (req, res) => {
