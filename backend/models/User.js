@@ -1,8 +1,10 @@
-import { model } from 'mongoose'
+import mongoose from 'mongoose'
 
-const User = model('User',{
-    name: String, 
-    username: String,
-})
+var UserSchema = mongoose.Schema({
+    name              : String,
+    username           : String
+});
+
+const User = mongoose.model('User', UserSchema)
 
 export default User

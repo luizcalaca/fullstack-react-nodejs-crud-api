@@ -1,6 +1,6 @@
 import express, { json, urlencoded } from 'express'
-import { connect } from 'mongoose'
-import userRoutes from './routes/userRoutes'
+import mongoose from 'mongoose'
+import userRoutes from './routes/userRoutes.js'
 import cors from 'cors'
 
 const app = express()
@@ -13,10 +13,9 @@ app.use(
     }),
 )
 
-app.use('/person', userRoutes)
+app.use('/user', userRoutes)
 
-connect(`mongodb://127.0.0.1:27017/user`
-)
+mongoose.connect(`mongodb://127.0.0.1:27017/user`)
 .then(() => {
     console.log('Connection OK')
     app.listen(3000)
