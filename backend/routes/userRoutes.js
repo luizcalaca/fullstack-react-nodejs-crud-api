@@ -56,7 +56,7 @@ router.get('/:id', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
     
-    const {name, salary, approved} = req.body
+    const {name, username} = req.body
     const id = req.params.id
 
     if(!name){
@@ -65,8 +65,7 @@ router.patch('/:id', async (req, res) => {
       
     const User = {
         name,
-        salary,
-        approved
+        username,
     }
 
     try {
