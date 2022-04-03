@@ -24,7 +24,7 @@ class Home extends Component {
     }
 
     refreshUserTable() {
-        this.usersData = api.get('api')
+        this.usersData = api.get('users')
             .then(response => response.data)
             .then(data => {
 
@@ -37,7 +37,7 @@ class Home extends Component {
 
     addUser = user => {
 
-        api.post('api', qs.stringify(user))
+        api.post('users', qs.stringify(user))
             .then(res => {
                 this.refreshUserTable();
             });
@@ -45,7 +45,7 @@ class Home extends Component {
 
     deleteUser = id => {
 
-        api.delete(`api/${id}`)
+        api.delete(`users/${id}`)
             .then(res => {
                 this.refreshUserTable();
             });
@@ -53,7 +53,7 @@ class Home extends Component {
 
     updateUser = (id, user) => {
         
-        api.put(`api/${id}`, qs.stringify(user))
+        api.put(`users/${id}`, qs.stringify(user))
             .then(res => {
 
                 this.refreshUserTable();
