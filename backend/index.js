@@ -19,7 +19,7 @@ app.use(
 
 app.use('/person', personRoutes)
 
-connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.n3ea0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+connect(`mongodb://127.0.0.1:27017/user`
 )
 .then(() => {
     console.log('Conectado com sucesso')
