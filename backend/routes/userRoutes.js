@@ -8,9 +8,9 @@ router.post('/', async (req, res) => {
     
     const {name, username} = req.body
 
-    if(!name){
-        res.status(422).json({error: 'O nome é obrigatório'})
-    }
+    //if(!name){
+    //    res.status(422).json({error: 'O nome é obrigatório'})
+    //}
       
     const user = {
         name,
