@@ -1,6 +1,5 @@
 import 'babel-polyfill'
 import supertest from 'supertest';
-import * as all from '../index';
 import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
@@ -18,7 +17,6 @@ describe('API test', () => {
   afterAll(async () => {
     await mongoose.disconnect();
     await mongoServer.stop();
-    //server.close()
   });
 
   describe('POST /user', () => {
@@ -27,8 +25,6 @@ describe('API test', () => {
         "name": "Master",
         "username": "MASTER"
       });
-
-      console.log(res.body)
 
       expect(res.status).toBe(201);
     });

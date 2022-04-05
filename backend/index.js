@@ -4,7 +4,6 @@ import userRoutes from './routes/userRoutes.js'
 import cors from 'cors'
 
 const app = express()
-let server = null
 
 app.use(cors());
 app.use(json())
@@ -22,6 +21,4 @@ mongoose.connect(`mongodb://127.0.0.1:27017/user`)
     server = app.listen(3334)
 })
 .catch((err) => console.log(err))
-
-export default { app, server }
 
